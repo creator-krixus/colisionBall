@@ -3,11 +3,12 @@ import { Ball } from "./ball.js"
 
 const canvas = document.getElementById('myCanvas');
 const title = document.getElementById('title')
+const body = document.getElementById('body')
 const context = canvas.getContext('2d');
-canvas.height = 350;
+canvas.height = 200;
 
 const ball = new Ball(300, 300, 3, 3, 10, 'blue' )
-const player = new Player(200, 310, 50, 15, 'red');
+const player = new Player(200, 180, 50, 15, 'red');
 
 function colorRandom(){
     const letters = '0123456789ABCDEF';
@@ -32,6 +33,7 @@ function animate(){
         player.color = colorRandom();
         canvas.style.border = '5px solid' + colorRandom()
         title.style.color = colorRandom()
+        body.style.backgroundColor = colorRandom()
     } 
     if(ball.y + ball.vy > canvas.height -5){
         alert('Game Over vuelvelo a intentar')
@@ -41,7 +43,7 @@ function animate(){
         ball.y = 3;
         ball.color = '#333'
         player.x = 500;
-        player.y = 310;
+        player.y = 180;
         player.color = '#333'
     }
     requestAnimationFrame(animate)
