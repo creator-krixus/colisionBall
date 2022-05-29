@@ -1,0 +1,15 @@
+body{
+    margin: 50px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#title{
+    text-align: center;
+    color: #333;
+}
+#myCanvas{
+    border: 5px solid #333;
+    border-radius: 1rem;
+}
