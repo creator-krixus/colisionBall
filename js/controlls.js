@@ -2,10 +2,11 @@ class Controlls {
     constructor(x, y) {
         this.left = false;
         this.right = false;
-        this.up = false;
-        this.down = false;
+        this.pageX = 0;
+        this.clientX = 0;
 
         this.#addKeyboardListeners();
+        this.#listenerTouch();
     }
     #addKeyboardListeners() {
         document.onkeydown = (event) => {
@@ -28,6 +29,22 @@ class Controlls {
                     break;
             }
         }
+    }
+    #listenerTouch(){
+        // window.addEventListener('touchstart', e => {
+        //     this.clientX = e.changedTouches[0].clientX
+        //     console.log(this.clientX)
+        // })
+        window.addEventListener('touchmove', e => {
+            console.log(this.pageX)
+            this.pageX = e.changedTouches[0].pageX
+            // console.log(e)
+        })
+        window.addEventListener('touchend', e => {
+            // console.log('final')
+            this.pageX = 0
+            // this.clientX = 0
+        })
     }
 }
 

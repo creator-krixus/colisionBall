@@ -1,4 +1,6 @@
-import { Controlls } from "./controlls.js";
+import {
+    Controlls
+} from "./controlls.js";
 
 class Player {
     constructor(x, y, width, height, color) {
@@ -7,25 +9,33 @@ class Player {
         this.width = width;
         this.height = height;
         this.color = color;
-        
+
         this.controlls = new Controlls()
     }
-    update(){
-        if(this.controlls.left){
+    update() {
+        if (this.controlls.left) {
             this.x -= 5;
         }
-        if(this.controlls.right){
+        if (this.controlls.right) {
             this.x += 5;
+        }
+    }
+    updateMove(){
+        if(this.controlls.pageX){
+            this.x -= 5
+        }
+        if(this.controlls.clientX){
+            this.x += 1
         }
     }
     draw(context) {
         context.beginPath();
         context.rect(
             this.x, this.y, this.width, this.height
-            )
-            context.fillStyle = this.color;
-            context.fill();
-        };
+        )
+        context.fillStyle = this.color;
+        context.fill();
+    };
 }
 
 export {
